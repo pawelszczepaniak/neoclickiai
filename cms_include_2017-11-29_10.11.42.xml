@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository file_format="ICF" version="1.0"><element id="1511946702">
+<meta><title></title><description>Treści dodatkowe na stronach generowanych automatycznie (CMS) dla 1 2017.11.29 10:11:42</description><icon encoding="base64"></icon><language name="pol"/></meta>
+<classification><type name="cms"/><class name="include"/></classification>
+<settings><setting type="active" value="no"/><setting type="show_table" value="no"/><setting type="visible" value=""/></settings>
+<contents><content type="name"> </content><content type="text_main_0"><![CDATA[<div class="neo-click-button" data-layout="standard" data-position="right"> </div>]]></content></contents>
+<enclosures> </enclosures>
+</element>
+</repository>
