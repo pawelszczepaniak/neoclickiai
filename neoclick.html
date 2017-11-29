@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class = "neo-click-button"></div>
+<script  type="text/javascript"  src="https://widget.d.neoclick.io/sdk/neo-click.js"></script>
+<script type="text/javascript">
+var sig;
+var input =
+    "6228863472927513479"
+    + "10" + "10"
+    + "100" + "10"
+    + "4" + "Przykładowy produkt - obuwie" + "1" + "20000"
+    + "AA" + "PLN"
+    + "100" + "100" + "100" + "100"
+    + "real";
+alert(input);
+var id = parseInt(4);
+var name = "Przykładowy produkt - obuwie";
+var price = parseInt(200)*100;
+
+$(document).ready(function() {
+
+function SigAjax(input) {
+$.ajax({
+  method: "GET",
+  url: "http://iai.iia.pl/index.php",
+  data: { input: input }
+})
+  .done(function( msg ) {
+
+
+       NeoClick.init({
+            appId: "6228863472927513479"
+         },
+         function(response) {
+
+         });
+
+      NeoClick.setBasket(
+      {
+         "currency": "PLN",
+         "type": "real",
+         "correlationId": "AA",
+         "articles": [{"id":id,"name":name,"price":price,"quantity":1,"dimensions":{"weight":100,"width":10,"height":10,"depth":10}}],
+         "dimensions": {
+            "width": 100,
+            "height": 100,
+            "depth": 100,
+            "weight": 100
+         },
+         "signature": msg
+       });
+//
+
+  });
+}
+
+                               SigAjax(input);
+
+});
+
+</script>
+</body>
+</html>
