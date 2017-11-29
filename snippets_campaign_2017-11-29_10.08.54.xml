@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository file_format="ICF" version="1.0"><element id="1511946534">
+<meta><title>Neoclick button</title><description>Neoclick button 2017.11.29 10:08:54</description><icon encoding="base64"></icon><language name="pol"/></meta>
+<classification><type name="snippets_campaign"/></classification>
+<settings/><contents><content type="title">Neoclick Widget Product Page</content><content type="text_main_0"><![CDATA[<script  type="text/javascript"  src="https://widget.neoclick.io/sdk/neo-click.js"></script>
+
+<script type="text/javascript">
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+var sizeId = getParameterByName('selected_size');
+var sizeAvailable = 1;
+var sig;
+var price = [iai:itemcardpage_product_price_gross_float];
+var price1 = Math.round(price*100);
+var id = "[iai:itemcardpage_product_id]" + "_" + "[iai:itemcardpage_product_size_internal_name]" +"_" + "[iai:itemcardpage_product_size_name]" + "_" +"[iai:itemcardpage_product_code]" ;
+var name = "[iai:itemcardpage_product_name]";
+var input =
+    "6269318634238120323"
+    + "10" + "10"
+    + "100" + "10"
+    + "[iai:itemcardpage_product_id]" + "_" + "[iai:itemcardpage_product_size_internal_name]" +"_" + "[iai:itemcardpage_product_size_name]"  + "_" +"[iai:itemcardpage_product_code]" + "[iai:itemcardpage_product_name]" + "1" + price1
+    + "AA" + "PLN"
+    + "100" + "100" + "100" + "100"
+    + "real";
+
+$(document).ready(function() {
+
+if (sizeAvailable){
+function SigAjax(input) {
+$.ajax({
+  method: "POST",
+  url: "https://evl.pl/signing_key_validation.php",
+  data: { input: input }
+})
+  .done(function( msg ) {
+
+
+       NeoClick.init({
+            appId: "6269318634238120323"
+         },
+         function(response) {
+
+         });
+
+      NeoClick.setBasket(
+      {
+         "currency": "PLN",
+         "type": "real",
+         "correlationId": "AA",
+         "articles": [{"id":id,"name":name,"price":price1,"quantity":1,"dimensions":{"weight":100,"width":10,"height":10,"depth":10}}],
+         "dimensions": {
+            "width": 100,
+            "height": 100,
+            "depth": 100,
+            "weight": 100
+         },
+         "signature": msg
+       });
+//
+
+  });
+}
+}
+
+                               SigAjax(input);
+
+});
+
+</script>
+
+]]></content><content type="active">normal_mobile</content><content type="format">html</content><content type="region">body_bottom</content><content type="client_type">all</content><content type="clients_with_rebate_code">all</content><content type="clients_subscribed">all</content><content type="clients_with_orders">all</content><content type="auto_block">n</content><content type="site">projector;</content><content type="display_dynamically">no</content><content type="snippet_activated">yes</content></contents>
+<contents><content type="title">Neoclick Widget Basket Page</content><content type="text_main_0"><![CDATA[<script  type="text/javascript"  src="https://widget.neoclick.io/sdk/neo-click.js"></script>
+<script type="text/javascript">
+var articles = new Array(); 
+var input =
+    "6269318634238120323"
+
+
+var i=0;
+
+[iai:foreach_products_begin]
+var price = [iai:product_price_gross_float];
+var price1 = Math.round(price*100);
+var id = "[iai:product_id]" + "_" + "[iai:product_size_internal_name]" +"_" + "[iai:product_size_name]"; 
+
+
+var name = "[iai:product_name]";
+
+
+articles[i]  = new Object();
+articles[i].id = id;
+articles[i].name = name + "[iai:product_size_name]";
+articles[i].price = price1;
+articles[i].quantity = [iai:product_count];
+articles[i].dimensions = new Object();
+articles[i].dimensions.weight=100;
+articles[i].dimensions.width=10;
+articles[i].dimensions.height=10;
+articles[i].dimensions.depth=10;
+
+i++;
+
+input = input  + "10" + "10"
+    + "100" + "10"
+    + id + name + "[iai:product_size_name]"  + [iai:product_count] + price1;
+
+
+[iai:foreach_products_sizes-begin]
+[iai:foreach_products_sizes-end]
+[iai:foreach_products_end]
+
+input = input
+    + "AA" + "PLN"
+    + "100" + "100" + "100" + "100"
+    + "real";
+var sig;
+
+$(document).ready(function() {
+
+function SigAjax(input) {
+$.ajax({
+  method: "POST",
+  url: "https://iiapromo.net/c/neoclickiai/",
+  data: { input: input }
+})
+  .done(function( msg ) {
+
+
+       NeoClick.init({
+            appId: "6269318634238120323"
+         },
+         function(response) {
+
+         });
+
+      NeoClick.setBasket(
+      {
+         "currency": "PLN",
+         "type": "real",
+         "correlationId": "AA",
+         "articles": articles,
+         "dimensions": {
+            "width": 100,
+            "height": 100,
+            "depth": 100,
+            "weight": 100
+         },
+         "signature": msg
+       });
+//
+
+  });
+}
+
+                               SigAjax(input);
+
+});
+
+</script>
+
+]]></content><content type="active">normal_mobile</content><content type="format">html</content><content type="region">body_bottom</content><content type="client_type">all</content><content type="clients_with_rebate_code">all</content><content type="clients_subscribed">all</content><content type="clients_with_orders">all</content><content type="auto_block">n</content><content type="site">basketedit;</content><content type="display_dynamically">no</content><content type="snippet_activated">yes</content></contents>
+<enclosures> </enclosures>
+</element>
+</repository>
